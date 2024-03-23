@@ -58,6 +58,7 @@ body {
         right: 100%;
         top: 0%;
         /* border: #e27500 2px solid; */
+        /* animation: showNavbar .4s linear 0s 1 forwards; */
         
 
         .close {
@@ -109,7 +110,7 @@ body {
     left: 2%;
     top: 9%;
     z-index: 2;
-    display: none;
+    /* display: none; */
 
     .heading {
         border-bottom: 2px solid rgb(159, 159, 163);
@@ -122,7 +123,7 @@ body {
             margin-left: 10px;
         }
     }
-    .content {
+    .empty {
         height: 200px;
         color: grey;
         font-weight: bold;
@@ -130,6 +131,21 @@ body {
         justify-content: center;
         align-items: center;
         /* border: none; */
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        .cartProduct {
+            display: flex;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
     }
 }
 
@@ -300,10 +316,10 @@ main {
 
 
 .showNavbar {
-    animation: showNav .4s linear 0s 1 forwards;
+    animation: showNavbar .4s linear 0s 1 forwards;
 }
 .hideNavbar {
-    animation: hideNav .4s linear 0s 1 forwards;
+    animation: hideNavbar .4s linear 0s 1 forwards;
 }
 
 @keyframes showNavbar {

@@ -9,12 +9,15 @@ let imageThumbnail_1 = "images/image-product-1-thumbnail.jpg"
 let imageThumbnail_2 = "images/image-product-2-thumbnail.jpg"
 let imageThumbnail_3 = "images/image-product-3-thumbnail.jpg"
 let imageThumbnail_4 = "images/image-product-4-thumbnail.jpg"
-let control_plus = "images/icon-plus.svg";
-let control_minus = "images/icon-minus.svg";
+let control_plus = $(".productCount > .increase");
+let control_minus = $(".productCount > .decrease");
 
 let mainImg = $(".mainImg");
+let cart;
+let menu = $(".menu");
+let closeMenu = $(".close");
 
-let productCount = $(".productCount > p")
+let productCount = $(".productCount p")
 let count = 0;
 let currentIndex = 0;
 let next = $(".next")
@@ -48,8 +51,34 @@ $(previous).click(function (e) {
 function countControl() {
     $(control_plus).click(function () {
         count++;
-        $(count).text(count)
+        console.log(count);
+        $(productCount).text(count)
+    });
+
+    $(control_minus).click(function () {
+        if(count === 0) {
+            return
+        } else {
+            count--;
+            console.log(count);
+            $(productCount).text(count)
+        }
     });
 }
 
-countControl()
+function controlNavbar() {
+    $(menu).click(function() {
+        console.log("object");
+        $(".navbar-nav").addClass('showNavbar');
+        $(".navbar-nav").removeClass('hideNavbar');
+    })
+
+    $(closeMenu).click(function() {
+        console.log("object");
+        $(".navbar-nav").addClass('hideNavbar');
+        $(".navbar-nav").removeClass('showNavbar');
+    })
+}
+
+controlNavbar()
+countControl();

@@ -44,8 +44,15 @@
       <section class="heading">
         <h3>Cart</h3>
       </section>
-      <section class="content">
+      <section class="empty">
         <p>Your Cart is empty.</p>
+      </section>
+      <section class="content">
+        <div class="cartProduct">
+          <img src="images/image-product-1.jpg" alt="product 1" />
+          <p>Fall Limited Edition Sneakers <br> $125.00 x <span class="itemQty">1</span>  <span class="totalPrice"></span></p>
+        </div>
+        <div id="checkout" class="button"><p>Add to Cart</p></div>
       </section>
     </div>
 
@@ -100,12 +107,12 @@
 
           <div class="productCountAndButton">
             <div class="productCount">
-              <img src="images/icon-minus.svg" alt="" />
+              <img class="decrease" src="images/icon-minus.svg" alt="minus" />
               <p>0</p>
-              <img src="images/icon-plus.svg" alt="" />
+              <img class="increase" src="images/icon-plus.svg" alt="plus" />
             </div>
     
-            <div class="button" type="button">
+            <div id="addToCart" class="button" type="button">
               <div class="svg_container">
                 <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
                   <path
