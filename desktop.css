@@ -1,0 +1,227 @@
+@media  (min-width: 800px) and (max-width: 1681px) {
+    body {
+        border: 2px solid rgb(51, 153, 97);
+        height: 100vh;
+    }
+    .nav {
+        
+        .container-fluid {
+            display: flex;
+            /* border: #e27500 2px solid; */
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+
+    #navbar-nav {
+        /* display: block; */
+        position: static;
+        /* left: 0%; */
+        height: fit-content;
+        width: fit-content;
+        /* border: #e27500 2px solid; */
+        color: black;
+
+        img {
+            display: none;
+        }
+
+        
+    }
+
+    #nav_links {
+        display: flex;
+        flex-direction: row;
+        /* gap: 20px; */
+        /* border: 2px solid brown; */
+        margin: 0px;
+        width: fit-content;
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: normal;
+            color: grey;
+        }
+    }
+    
+    main {
+        /* border: 2px solid rebeccapurple; */
+        width: 70%;
+        height: fit-content;
+        margin: auto;
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        /* gap: 60px; */
+
+        .mainImg {
+            border-radius: 15px;
+        }
+
+        .productShowcase {
+            padding: 0%;
+            width: 45%;
+            /* border: 2px solid #0004e2; */
+            
+            img {
+                height: 400px;
+            }
+
+            .thumbnails {
+                /* border: 2px solid #e2009e; */
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                width: 98%;
+                margin: auto;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 10px;
+                    border: 2px solid #e27500;
+                }
+            }
+        }
+
+        .section {
+            /* border: 2px solid rgb(123, 0, 255); */
+            margin: 0%;
+            margin-top: 0%;
+            width: 50%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+
+            .product_info {
+                /* border: 2px solid #e20057 ; */
+                font-size: 11px;
+                margin: auto;
+                width: 90;
+            }
+
+            .priceAndMore {
+                /* border: 2px solid rgb(60, 0, 255); */
+                height: fit-content;
+                
+                .price {
+                    /* border: 2px solid rgb(255, 0, 174); */
+                    display: flex;
+                    width: 41%;
+                    flex-wrap: wrap;
+                    margin: 0%;
+                    margin-bottom: 20px;
+
+                    .stroke {
+                        /* border: #0004e2 solid 2px; */
+                        justify-self: end;
+                        margin: 0%;
+                    }
+                }
+                
+                .productCountAndButton {
+                    /* border: 2px solid rgb(255, 0, 98); */
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    /* gap: 30px; */
+                    margin: 0%;
+                    width: 100%;
+                    
+                    .productCount {
+                        background-color: rgb(230, 230, 230);
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        height: 50px;
+                        width: 35%;
+                        margin: 0%;
+                        
+                        p {
+                            font-size: 20px;
+                            margin: 0%;
+                            color: black;
+                        }
+                        
+                        img {
+                            width: 10px;
+                        }
+                    }
+                    
+                    .button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 20px;
+                        border-radius: 10px;
+                        border: none;
+                        height: 50px;
+                        width: 60%;
+                        background-color: rgb(217, 114, 4);
+                        margin: 0%;
+                        
+                        p {
+                            color: white;
+                            font-size: 17px;
+                            font-weight: bold;
+                            width: fit-content;
+                            /* height: fit-content; */
+                            margin: 0%;
+                            /* border: 2px solid seashell; */
+                        }
+                        
+                        .svg_container {
+                            display: flex;
+                            align-items: center;
+                            /* border: 2px solid seashell; */
+                            height: 30px;
+                            width: fit-content;
+                            align-self: center;
+                            margin: 0%;
+                            svg {
+                                color: white;
+                                height: fit-content;
+                                width: fit-content;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            div {
+                width: 90%;
+                margin: auto;
+                margin-top: 15px;
+        
+                header {
+                    color: rgb(220, 150, 20);
+                    font-size: 19px;
+                }
+        
+                h1 {
+                    margin: auto;
+                    margin-top: 12px;
+                    font-size: 30px;
+                }
+        
+                p {
+                    font-size: 18px;
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    .attribution {
+        width: 100%;
+        position: fixed;
+        bottom: 0%;
+    }
+}
