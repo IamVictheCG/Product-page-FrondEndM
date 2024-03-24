@@ -17,9 +17,16 @@ let menu = $(".menu");
 let closeMenu = $(".close");
 let cart = $(".cart");
 let cartIcon = $(".cart_img");
+let addToCart = $("#addToCart");
+let deleteCartItem;
+let cartContent = $(".content");
+let empty = $(".empty");
+let price = $('.price p:nth-of-type(1)')
+let checkout = $('#checkout')
 
 let productCount = $(".productCount p")
 let count = 0;
+let cartCount = 0;
 let currentIndex = 0;
 let next = $(".next")
 let previous = $(".previous")
@@ -69,15 +76,15 @@ function countControl() {
 
 function controlNavbar() {
     $(menu).click(function() {
-        console.log("object");
         $(".navbar-nav").addClass('showNavbar');
         $(".navbar-nav").removeClass('hideNavbar');
+        $(".black_cover").css('display', 'block');
     })
-
+    
     $(closeMenu).click(function() {
-        console.log("object");
         $(".navbar-nav").addClass('hideNavbar');
         $(".navbar-nav").removeClass('showNavbar');
+        $(".black_cover").css('display', 'none');
     })
 }
 
@@ -89,14 +96,71 @@ function cartHandler() {
         } else {
             $(cart).css('display', 'block');
             console.log($(cart).css('display'));
+            if(cartCount < 1) {
+                $(cartContent).css('display', 'none');
+                $(empty).css('display', 'flex');
+            }
         }
     })
 }
 
-function addToCart() {
-    
+function addToCartHandler() {
+        $(addToCart).click(function () {
+            $(cartContent).css('display', 'flex');
+
+            cartCount++;
+            console.log(cartCount);
+            let totalPrice = $(price).text().slice(1) * count;
+            console.log(totalPrice);
+
+            // Create HTML for the new cart product
+            let newCartProduct = `
+            <div class="cartProduct">
+                <img src="${imageProducts[currentIndex]}" alt="product" />
+                <p>Fall Limited Edition Sneakers <br> $125.00 x <span class="itemQty">${count}</span>  <span class="totalPrice">$${totalPrice}</span></p>
+                <img class="delete" src="images/icon-delete.svg" alt="delete">
+            </div>`;
+
+            // Find the last product in the cart
+            let lastProduct = $(cartContent).find(checkout);
+            console.log(lastProduct);
+
+            // Insert the new cart product before the last product
+            $(newCartProduct).insertBefore(lastProduct);
+
+            if(cartCount > 0) {
+                // $(cartContent).css('display', 'none');
+                $(empty).css('display', 'none');
+            }
+
+
+        })
+
+        // $(deleteCartItem).click(function () {
+
+        // })
+
+        // Event delegation to handle delete button clicks
+    $(document).on('click', '.delete', function() {
+        cartCount--;
+        // Find the parent element of the delete button (which is the container for the product)
+        let product = $(this).closest('.cartProduct');
+
+        // Perform actions to delete the item or hide the container
+        product.remove(); // Removes the entire container from the DOM
+
+        if(cartCount < 1) {
+            $(cartContent).css('display', 'none');
+            $(empty).css('display', 'flex');
+        }
+    });
 }
+
+$(checkout).click(function() {
+    $(cartContent).css('display', 'none');    
+})
 
 controlNavbar();
 countControl();
 cartHandler();
+addToCartHandler();
