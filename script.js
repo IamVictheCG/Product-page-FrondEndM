@@ -13,9 +13,10 @@ let control_plus = $(".productCount > .increase");
 let control_minus = $(".productCount > .decrease");
 
 let mainImg = $(".mainImg");
-let cart;
 let menu = $(".menu");
 let closeMenu = $(".close");
+let cart = $(".cart");
+let cartIcon = $(".cart_img");
 
 let productCount = $(".productCount p")
 let count = 0;
@@ -80,5 +81,22 @@ function controlNavbar() {
     })
 }
 
-controlNavbar()
+function cartHandler() {
+    $(cartIcon).click(function() {
+        if ($(cart).css('display') == 'block') {
+            $(cart).css('display', 'none');
+            console.log($(cart).css('display'));
+        } else {
+            $(cart).css('display', 'block');
+            console.log($(cart).css('display'));
+        }
+    })
+}
+
+function addToCart() {
+    
+}
+
+controlNavbar();
 countControl();
+cartHandler();

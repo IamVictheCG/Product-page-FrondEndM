@@ -102,7 +102,7 @@ body {
 
 .cart {
     background-color: white;
-    /* border: 2px solid rgb(0, 255, 55); */
+    border: 2px solid grey;
     width: 96%;
     height: fit-content;
     border-radius: 14px;
@@ -110,7 +110,7 @@ body {
     left: 2%;
     top: 9%;
     z-index: 2;
-    /* display: none; */
+    display: none;
 
     .heading {
         border-bottom: 2px solid rgb(159, 159, 163);
@@ -124,6 +124,7 @@ body {
         }
     }
     .empty {
+        /* border: #00e278 2px solid; */
         height: 200px;
         color: grey;
         font-weight: bold;
@@ -131,19 +132,69 @@ body {
         justify-content: center;
         align-items: center;
         /* border: none; */
-        display: none;
+        /* display: none; */
     }
 
     .content {
+        /* border: #00e278 2px solid; */
         display: flex;
         flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        padding-top: 30px;
+        display: none;
 
         .cartProduct {
+            /* border: #1300e2 2px solid; */
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 92%;
 
             img {
+                width: 60px;
+                height: 60px;
+                border-radius: 6px;
+            }
+
+            .delete {
                 width: 20px;
                 height: 20px;
+            }
+
+            p {
+                /* border: 2px solid rebeccapurple; */
+                margin: 0%;
+                color: grey;
+                font-size: 20px;
+                margin-left: 10px;
+                line-height: 28px;
+
+                .totalPrice {
+                    color: black;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        .button {
+            border-radius: 10px;
+            border: none;
+            height: 60px;
+            width: 90%;
+            background-color: #d97204;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;   
+            
+            p {
+                /* border: 2px solid firebrick; */
+                width: fit-content;
+                color: white;
+                font-size: 26px;
+                font-weight: bold;
             }
         }
     }
