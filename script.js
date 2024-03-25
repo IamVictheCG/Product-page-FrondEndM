@@ -1,16 +1,19 @@
 console.log($(".heading h3"));
 console.log("hello");
-let imageProduct_1 = "images/image-product-1.jpg"
-let imageProduct_2 = "images/image-product-2.jpg"
-let imageProduct_3 = "images/image-product-3.jpg"
-let imageProduct_4 = "images/image-product-4.jpg"
+let imageProduct_1_url = "images/image-product-1.jpg"
+let imageProduct_2_url = "images/image-product-2.jpg"
+let imageProduct_3_url = "images/image-product-3.jpg"
+let imageProduct_4_url = "images/image-product-4.jpg"
 
-let imageThumbnail_1 = "images/image-product-1-thumbnail.jpg"
-let imageThumbnail_2 = "images/image-product-2-thumbnail.jpg"
-let imageThumbnail_3 = "images/image-product-3-thumbnail.jpg"
-let imageThumbnail_4 = "images/image-product-4-thumbnail.jpg"
+let imageThumbnail_1_url = "images/image-product-1-thumbnail.jpg";
+let imageThumbnail_2_url = "images/image-product-2-thumbnail.jpg";
+let imageThumbnail_3_url = "images/image-product-3-thumbnail.jpg";
+let imageThumbnail_4_url = "images/image-product-4-thumbnail.jpg";
 let control_plus = $(".productCount > .increase");
 let control_minus = $(".productCount > .decrease");
+// let imageThumbnails = $('.thumbnail');
+let imageThumbnails = Array(...$('.thumbnail'));
+// console.log(imageThumbnails[2]);
 
 let mainImg = $(".mainImg");
 let menu = $(".menu");
@@ -30,13 +33,16 @@ let cartCount = 0;
 let currentIndex = 0;
 let next = $(".next")
 let previous = $(".previous")
+let innerWidth = $(window).innerWidth();
+console.log(innerWidth);
+let desktop;
 
-const imageProducts = Array(imageProduct_1,imageProduct_2, imageProduct_3, imageProduct_4);
+const imageProducts = Array(imageProduct_1_url,imageProduct_2_url, imageProduct_3_url, imageProduct_4_url);
 
-const imageThumbnails = Array(imageThumbnail_1,imageThumbnail_2, imageThumbnail_3, imageThumbnail_4);
+const imageThumbnail_url = Array(imageThumbnail_1_url,imageThumbnail_2_url, imageThumbnail_3_url, imageThumbnail_4_url);
 
 console.log(imageProducts);
-console.log(imageThumbnails);
+console.log(imageThumbnail_url);
 console.log(mainImg.attr("src"));
 
 
@@ -160,7 +166,30 @@ $(checkout).click(function() {
     $(cartContent).css('display', 'none');    
 })
 
+//=============================================================
+//Desktop
+
+function desktopView() {
+    $.each(imageThumbnails, function(index, element) {
+        $(element).click(function() {
+            if ($(this)) {
+                $(this).find('.blur').css('opacity', '0.7');
+                $(imageThumbnails).not($(this)).find('.blur').css('opacity', '0');
+                // console.log($(this).attr('id'));
+                $(mainImg).attr('src', imageProducts[index])
+                // console.log(index);
+            } 
+            // else {
+            // }
+        })
+        // $(element).find('img').css('border-color', '#e27500');
+    })
+
+}
+
+
 controlNavbar();
 countControl();
 cartHandler();
 addToCartHandler();
+desktopView();

@@ -105,22 +105,27 @@ body {
     border: 2px solid grey;
     width: 96%;
     height: fit-content;
+    height: 400px;
     max-height: 400px;
     border-radius: 14px;
     position: absolute;
     left: 2%;
     top: 9%;
     z-index: 2;
-    overflow: scroll;
+    /* display: block; */
+    overflow: hidden;
     display: none;
-
+    
     .heading {
         border-bottom: 2px solid rgb(159, 159, 163);
-
+        /* border: #e20022 2px solid; */
+        background-color: white;
+        
         h3 {
-
+            /* border: #0013e2 2px solid; */
             margin: 0%;
-            width: fit-content;
+            margin-block: 25px;
+            z-index: 3;
             margin-block: 25px;
             margin-left: 10px;
         }
@@ -134,18 +139,19 @@ body {
         justify-content: center;
         align-items: center;
         /* border: none; */
-        display: none;
     }
-
+    
     .content {
-        /* border: #00e278 2px solid; */
+        border: #00e278 2px solid;
         display: flex;
         flex-direction: column;
         gap: 30px;
         align-items: center;
         padding-top: 30px;
+        height: 294px;
+        overflow-y: scroll;
         display: none;
-
+        
         .cartProduct {
             /* border: #1300e2 2px solid; */
             display: flex;
