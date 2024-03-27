@@ -163,7 +163,7 @@ function addToCartHandler() {
 }
 
 $(checkout).click(function() {
-    $(cartContent).css('display', 'none');    
+    $(cart).css('display', 'none');    
 })
 
 //=============================================================
