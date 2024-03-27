@@ -227,8 +227,14 @@ $(mainImg).click(function (e) {
     $(".preview").css('display', 'flex');
 });
 
+// $(preview_closeMenu).mouseover(function () { 
+//     $(preview_closeMenu).attr('fill', 'red');
+    
+// });
+
+
 $(preview_closeMenu).click(function (e) { 
-    e.preventDefault();
+e.preventDefault();
     $(".black_cover").css('display', 'none');
     $(".preview").css('display', 'none');
 });
