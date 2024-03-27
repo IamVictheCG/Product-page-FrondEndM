@@ -37,9 +37,21 @@ let innerWidth = $(window).innerWidth();
 console.log(innerWidth);
 let desktop;
 
+
 const imageProducts = Array(imageProduct_1_url,imageProduct_2_url, imageProduct_3_url, imageProduct_4_url);
 
 const imageThumbnail_url = Array(imageThumbnail_1_url,imageThumbnail_2_url, imageThumbnail_3_url, imageThumbnail_4_url);
+
+//=========================preview========================================
+let preview = $(".preview");
+let preview_mainImg = $(".preview_mainImg");
+let preview_menu = $(".preview_menu");
+let preview_closeMenu = $(".preview_close");
+let preview_next = $(".preview_next")
+let preview_previous = $(".preview_previous")
+let preview_imageThumbnails = Array(...$('.preview_thumbnail'));
+//=========================================================================
+
 
 console.log(imageProducts);
 console.log(imageThumbnail_url);
@@ -167,7 +179,7 @@ $(checkout).click(function() {
 })
 
 //=============================================================
-//Desktop
+//Desktop View
 
 function desktopView() {
     $.each(imageThumbnails, function(index, element) {
@@ -185,11 +197,63 @@ function desktopView() {
         // $(element).find('img').css('border-color', '#e27500');
     })
 
+    //========preview==========
+
+    $.each(preview_imageThumbnails, function(index, element) {
+        $(element).click(function() {
+            if ($(this)) {
+                $(this).find('.preview_blur').css('opacity', '0.7');
+                $(preview_imageThumbnails).not($(this)).find('.blur').css('opacity', '0');
+                // console.log($(this).attr('id'));
+                $(preview_mainImg).attr('src', imageProducts[index])
+                // console.log(index);
+            } 
+        })
+    })
+
 }
+
+
+//=========================preview========================================
+// let preview_mainImg = $(".preview_mainImg");
+// let preview_menu = $(".preview_menu");
+// let preview_closeMenu = $(".preview_close");
+// let preview_next = $(".preview_next")
+// let preview_previous = $(".preview_previous")
+
+$(mainImg).click(function (e) { 
+    e.preventDefault();
+    $(".black_cover").css('display', 'block');
+    $(".preview").css('display', 'flex');
+});
+
+$(preview_closeMenu).click(function (e) { 
+    e.preventDefault();
+    $(".black_cover").css('display', 'none');
+    $(".preview").css('display', 'none');
+});
+
+$(preview_next).click(function (e) { 
+    e.preventDefault();
+    currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
+    console.log(currentIndex);
+    $(preview_mainImg).attr("src", imageProducts[currentIndex]);
+    console.log($(preview_mainImg).attr("src"));
+});
+$(preview_previous).click(function (e) { 
+    
+    e.preventDefault();
+    currentIndex = (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
+    console.log(currentIndex);
+    $(preview_mainImg).attr("src", imageProducts[currentIndex]);
+    console.log($(preview_mainImg).attr("src"));
+});
 
 
 controlNavbar();
 countControl();
 cartHandler();
 addToCartHandler();
-desktopView();
+if (innerWidth > 800) {
+    desktopView();
+}
