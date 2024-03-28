@@ -12,6 +12,10 @@ body {
     display: none;
 }
 
+.preview {
+    display: none;
+}
+
 .navbar {
     display: flex;
     /* border: 2px solid rgb(11, 253, 112); */

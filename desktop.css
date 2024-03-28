@@ -1,8 +1,12 @@
 @media  (min-width: 801px) and (max-width: 1681px) {
     body {
-        border: 2px solid rgb(51, 153, 97);
+        /* border: 2px solid rgb(51, 153, 97); */
         height: 100vh;
         /* position: relative; */
+
+        .button:hover{
+            cursor: pointer;
+        }
 
         #cart.cart {
             background-color: white;
@@ -155,7 +159,7 @@
             }
             
             .preview_close {
-                /* border: 2px solid #ff7300; */
+                border: 2px solid #702d2d;
                 /* display: none; */
                 margin-left: 32.95%;
                 margin-bottom: 10px;
@@ -365,7 +369,7 @@
                     width: 100%;
                     
                     .productCount {
-                        background-color: rgb(230, 230, 230);
+                        background-color: #e6e6e6;
                         border-radius: 10px;
                         display: flex;
                         justify-content: space-around;
@@ -382,6 +386,13 @@
                         
                         img {
                             width: 10px;
+                            /* border: 2px solid red; */
+                            padding-block: 10px;
+                            padding-inline: 10px;
+
+                        }
+                        img:hover {
+                            cursor: pointer;
                         }
                     }
                     
