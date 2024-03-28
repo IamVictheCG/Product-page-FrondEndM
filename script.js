@@ -53,14 +53,14 @@ const imageThumbnail_url = Array(
     imageThumbnail_4_url
 );
 
-//=========================preview========================================
-let preview = $(".preview");
-let preview_mainImg = $(".preview_mainImg");
-let preview_menu = $(".preview_menu");
-let preview_closeMenu = $(".preview_close");
-let preview_next = $(".preview_next");
-let preview_previous = $(".preview_previous");
-let preview_imageThumbnails = Array(...$(".preview_thumbnail"));
+//=========================lightBox========================================
+let lightBox = $(".lightBox");
+let lightBox_mainImg = $(".lightBox_mainImg");
+let lightBox_menu = $(".lightBox_menu");
+let lightBox_closeMenu = $(".lightBox_close");
+let lightBox_next = $(".lightBox_next");
+let lightBox_previous = $(".lightBox_previous");
+let lightBox_imageThumbnails = Array(...$(".lightBox_thumbnail"));
 //=========================================================================
 
 console.log(imageProducts);
@@ -219,62 +219,62 @@ function desktopView() {
         // $(element).find('img').css('border-color', '#e27500');
     });
 
-    //========preview==========
+    //========lightBox==========
 
-    $.each(preview_imageThumbnails, function (index, element) {
+    $.each(lightBox_imageThumbnails, function (index, element) {
         $(element).click(function () {
             if ($(this)) {
-                $(this).find(".preview_blur").css("opacity", "0.7");
-                $(preview_imageThumbnails)
+                $(this).find(".lightBox_blur").css("opacity", "0.7");
+                $(lightBox_imageThumbnails)
                     .not($(this))
-                    .find(".blur")
+                    .find(".lightBox_blur")
                     .css("opacity", "0");
                 // console.log($(this).attr('id'));
-                $(preview_mainImg).attr("src", imageProducts[index]);
+                $(lightBox_mainImg).attr("src", imageProducts[index]);
                 // console.log(index);
             }
         });
     });
 }
 
-//=========================preview========================================
-// let preview_mainImg = $(".preview_mainImg");
-// let preview_menu = $(".preview_menu");
-// let preview_closeMenu = $(".preview_close");
-// let preview_next = $(".preview_next")
-// let preview_previous = $(".preview_previous")
+//=========================lightBox========================================
+// let lightBox_mainImg = $(".lightBox_mainImg");
+// let lightBox_menu = $(".lightBox_menu");
+// let lightBox_closeMenu = $(".lightBox_close");
+// let lightBox_next = $(".lightBox_next")
+// let lightBox_previous = $(".lightBox_previous")
 
 $(mainImg).click(function (e) {
     e.preventDefault();
     $(".black_cover").css("display", "block");
-    $(".preview").css("display", "flex");
+    $(".lightBox").css("display", "flex");
 });
 
-// $(preview_closeMenu).mouseover(function () {
-//     $(preview_closeMenu).attr('fill', 'red');
+// $(lightBox_closeMenu).mouseover(function () {
+//     $(lightBox_closeMenu).attr('fill', 'red');
 
 // });
 
-$(preview_closeMenu).click(function (e) {
+$(lightBox_closeMenu).click(function (e) {
     e.preventDefault();
     $(".black_cover").css("display", "none");
-    $(".preview").css("display", "none");
+    $(".lightBox").css("display", "none");
 });
 
-$(preview_next).click(function (e) {
+$(lightBox_next).click(function (e) {
     e.preventDefault();
     currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
     console.log(currentIndex);
-    $(preview_mainImg).attr("src", imageProducts[currentIndex]);
-    console.log($(preview_mainImg).attr("src"));
+    $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
+    console.log($(lightBox_mainImg).attr("src"));
 });
-$(preview_previous).click(function (e) {
+$(lightBox_previous).click(function (e) {
     e.preventDefault();
     currentIndex =
         (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
     console.log(currentIndex);
-    $(preview_mainImg).attr("src", imageProducts[currentIndex]);
-    console.log($(preview_mainImg).attr("src"));
+    $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
+    console.log($(lightBox_mainImg).attr("src"));
 });
 
 controlNavbar();
