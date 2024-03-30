@@ -16,6 +16,7 @@ let imageThumbnails = Array(...$(".thumbnail"));
 // console.log(imageThumbnails[2]);
 
 let mainImg = $(".mainImg");
+// let mainImgSrc = $(mainImg).attr('src')
 let menu = $(".menu");
 let closeMenu = $(".close");
 let cart = $(".cart");
@@ -206,53 +207,73 @@ $(checkout).click(function () {
 function desktopView() {
     $.each(imageThumbnails, function (index, element) {
         $(element).click(function () {
+            currentIndex = index
+            // I want currentIndex here
             if ($(this)) {
+                console.log(currentIndex);
+                
                 $(this).find(".blur").css("opacity", "0.7");
                 $(imageThumbnails).not($(this)).find(".blur").css("opacity", "0");
                 // console.log($(this).attr('id'));
                 $(mainImg).attr("src", imageProducts[index]);
                 // console.log(index);
+                
+                $(lightBox_imageThumbnails[index]).find(".lightBox_blur").css("opacity", "0.7");
+                $(lightBox_imageThumbnails)
+                .not($(lightBox_imageThumbnails[index]))
+                .find(".lightBox_blur")
+                .css("opacity", "0");
             }
-            // else {
-            // }
         });
         // $(element).find('img').css('border-color', '#e27500');
     });
 
     //=========================lightBox========================================
-
+    
     $.each(lightBox_imageThumbnails, function (index, element) {
+        // console.log($(lightBox_mainImg).attr("src"));
         $(element).click(function () {
-            if ($(this)) {
-                $(this).find(".lightBox_blur").css("opacity", "0.7");
-                $(lightBox_imageThumbnails)
+            currentIndex = index
+            console.log(currentIndex);
+            
+            
+                if ($(element)) {
+                    $(this).find(".lightBox_blur").css("opacity", "0.7");
+                    $(lightBox_imageThumbnails)
                     .not($(this))
                     .find(".lightBox_blur")
                     .css("opacity", "0");
-                // console.log($(this).attr('id'));
-                $(lightBox_mainImg).attr("src", imageProducts[index]);
-                // console.log(index);
-            }
-        });
+                    // console.log($(this).attr('id'));
+                    $(lightBox_mainImg).attr("src", imageProducts[index]);
+                    // console.log(index);
+                }
+            });
     });
-
+    
+    
+    
+    
     // let lightBox_mainImg = $(".lightBox_mainImg");
     // let lightBox_menu = $(".lightBox_menu");
     // let lightBox_closeMenu = $(".lightBox_close");
     // let lightBox_next = $(".lightBox_next")
     // let lightBox_previous = $(".lightBox_previous")
-
+    
     $(mainImg).click(function (e) {
         e.preventDefault();
+        
+        $(lightBox_mainImg).attr("src", $(mainImg).attr('src'));
+        console.log($(lightBox_mainImg).attr("src"));
+        // console.log($(mainImg).attr('src'));
         $(".black_cover").css("display", "block");
         $(".lightBox").css("display", "flex");
     });
-
+    
     // $(lightBox_closeMenu).mouseover(function () {
-    //     $(lightBox_closeMenu).attr('fill', 'red');
-
-    // });
-
+        //     $(lightBox_closeMenu).attr('fill', 'red');
+        
+        // });
+        
     $(lightBox_closeMenu).click(function (e) {
         e.preventDefault();
         $(".black_cover").css("display", "none");
@@ -263,29 +284,36 @@ function desktopView() {
         $(".black_cover").css("display", "none");
         $(".lightBox").css("display", "none");
     });
-
+        
     $(lightBox_next).click(function (e) {
+        // and here to be the same
         e.preventDefault();
-        currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
+    currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
+    console.log(currentIndex);
+    $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
+    console.log($(lightBox_mainImg).attr("src"));
+    // console.log($(lightBox_imageThumbnails[currentIndex]).attr('id'));
+    
+    $(lightBox_imageThumbnails[currentIndex]).find(".lightBox_blur").css("opacity", "0.7");
+    $(lightBox_imageThumbnails)
+    .not($(lightBox_imageThumbnails[currentIndex]))
+    .find(".lightBox_blur")
+    .css("opacity", "0");
+    });
+
+    $(lightBox_previous).click(function (e) {
+        e.preventDefault();
+        currentIndex =
+        (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
         console.log(currentIndex);
         $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
         console.log($(lightBox_mainImg).attr("src"));
-        // console.log($(lightBox_imageThumbnails[currentIndex]).attr('id'));
-
+        
         $(lightBox_imageThumbnails[currentIndex]).find(".lightBox_blur").css("opacity", "0.7");
         $(lightBox_imageThumbnails)
         .not($(lightBox_imageThumbnails[currentIndex]))
         .find(".lightBox_blur")
         .css("opacity", "0");
-
-    });
-    $(lightBox_previous).click(function (e) {
-        e.preventDefault();
-        currentIndex =
-            (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
-        console.log(currentIndex);
-        $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
-        console.log($(lightBox_mainImg).attr("src"));
     });
 }
 
