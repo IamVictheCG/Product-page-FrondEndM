@@ -256,13 +256,21 @@
     .navbar {
         margin: 0%;
         /* background-color: #d97204; */
+        /* border: 2px solid blue; */
+        width: 70%;
+        border-bottom: 2px solid rgb(168, 168, 168);
+
+        .menu {
+            display: none;
+        }
         .nav {
             
             .container-fluid {
                 display: flex;
                 /* border: #e27500 2px solid; */
-                justify-content: space-evenly;
+                justify-content: space-between;
                 align-items: center;
+                width: 70%;
                 gap: 20px;
             }
         }
