@@ -219,7 +219,7 @@ function desktopView() {
         // $(element).find('img').css('border-color', '#e27500');
     });
 
-    //========lightBox==========
+    //=========================lightBox========================================
 
     $.each(lightBox_imageThumbnails, function (index, element) {
         $(element).click(function () {
@@ -235,52 +235,64 @@ function desktopView() {
             }
         });
     });
+
+    // let lightBox_mainImg = $(".lightBox_mainImg");
+    // let lightBox_menu = $(".lightBox_menu");
+    // let lightBox_closeMenu = $(".lightBox_close");
+    // let lightBox_next = $(".lightBox_next")
+    // let lightBox_previous = $(".lightBox_previous")
+
+    $(mainImg).click(function (e) {
+        e.preventDefault();
+        $(".black_cover").css("display", "block");
+        $(".lightBox").css("display", "flex");
+    });
+
+    // $(lightBox_closeMenu).mouseover(function () {
+    //     $(lightBox_closeMenu).attr('fill', 'red');
+
+    // });
+
+    $(lightBox_closeMenu).click(function (e) {
+        e.preventDefault();
+        $(".black_cover").css("display", "none");
+        $(".lightBox").css("display", "none");
+    });
+    $('.black_cover').click(function (e) {
+        e.preventDefault();
+        $(".black_cover").css("display", "none");
+        $(".lightBox").css("display", "none");
+    });
+
+    $(lightBox_next).click(function (e) {
+        e.preventDefault();
+        currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
+        console.log(currentIndex);
+        $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
+        console.log($(lightBox_mainImg).attr("src"));
+        // console.log($(lightBox_imageThumbnails[currentIndex]).attr('id'));
+
+        $(lightBox_imageThumbnails[currentIndex]).find(".lightBox_blur").css("opacity", "0.7");
+        $(lightBox_imageThumbnails)
+        .not($(lightBox_imageThumbnails[currentIndex]))
+        .find(".lightBox_blur")
+        .css("opacity", "0");
+
+    });
+    $(lightBox_previous).click(function (e) {
+        e.preventDefault();
+        currentIndex =
+            (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
+        console.log(currentIndex);
+        $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
+        console.log($(lightBox_mainImg).attr("src"));
+    });
 }
-
-//=========================lightBox========================================
-// let lightBox_mainImg = $(".lightBox_mainImg");
-// let lightBox_menu = $(".lightBox_menu");
-// let lightBox_closeMenu = $(".lightBox_close");
-// let lightBox_next = $(".lightBox_next")
-// let lightBox_previous = $(".lightBox_previous")
-
-$(mainImg).click(function (e) {
-    e.preventDefault();
-    $(".black_cover").css("display", "block");
-    $(".lightBox").css("display", "flex");
-});
-
-// $(lightBox_closeMenu).mouseover(function () {
-//     $(lightBox_closeMenu).attr('fill', 'red');
-
-// });
-
-$(lightBox_closeMenu).click(function (e) {
-    e.preventDefault();
-    $(".black_cover").css("display", "none");
-    $(".lightBox").css("display", "none");
-});
-
-$(lightBox_next).click(function (e) {
-    e.preventDefault();
-    currentIndex = (currentIndex + 1) % imageProducts.length; // Increment index cyclically
-    console.log(currentIndex);
-    $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
-    console.log($(lightBox_mainImg).attr("src"));
-});
-$(lightBox_previous).click(function (e) {
-    e.preventDefault();
-    currentIndex =
-        (currentIndex - 1 + imageProducts.length) % imageProducts.length; // Increment index cyclically
-    console.log(currentIndex);
-    $(lightBox_mainImg).attr("src", imageProducts[currentIndex]);
-    console.log($(lightBox_mainImg).attr("src"));
-});
 
 controlNavbar();
 countControl();
 cartHandler();
 addToCartHandler();
-if (innerWidth > 800) {
+if (innerWidth >= 768) {
     desktopView();
 }

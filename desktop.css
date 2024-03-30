@@ -1,7 +1,11 @@
-@media  (min-width: 801px) and (max-width: 1681px) {
     body {
-        /* border: 2px solid rgb(51, 153, 97); */
-        height: 100vh;
+        border: 2px solid rgb(51, 153, 97);
+        min-height: 100vh;
+        height: 150%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         /* position: relative; */
 
         .button:hover{
@@ -126,8 +130,8 @@
 
         .lightBox {
             padding: 0%;
-            width: 100vw;
-            height: 100vh;
+            width: fit-content;
+            height: fit-content;
             /* border: 2px solid #0004e2; */
             display: flex;
             justify-content: center;
@@ -135,6 +139,8 @@
             flex-direction: column;
             /* padding-top: 5%; */
             position: absolute;
+            top: 18%;
+            left: auto;
             z-index: 5;
             display: none;
 
@@ -246,16 +252,23 @@
             }
         }
     }
-    .nav {
-        
-        .container-fluid {
-            display: flex;
-            /* border: #e27500 2px solid; */
-            justify-content: space-evenly;
-            align-items: center;
-            gap: 20px;
+
+    .navbar {
+        margin: 0%;
+        /* background-color: #d97204; */
+        .nav {
+            
+            .container-fluid {
+                display: flex;
+                /* border: #e27500 2px solid; */
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 20px;
+            }
         }
+
     }
+
 
 
     #navbar-nav {
@@ -298,9 +311,10 @@
         width: 70%;
         /* height: fit-content; */
         margin: auto;
-        margin-top: 100px;
+        /* margin-top: 100px; */
         display: flex;
         justify-content: space-between;
+
         /* gap: 60px; */
         /* display: none; */
 
@@ -512,5 +526,5 @@
         width: 100%;
         position: fixed;
         bottom: 0%;
+        display: none;
     }
-}
