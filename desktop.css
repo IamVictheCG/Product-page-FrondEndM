@@ -263,6 +263,11 @@
         .menu {
             display: none;
         }
+        .nav_img {
+            img:hover {
+                cursor: pointer;
+            }
+        }
         .nav {
             
             .container-fluid {
@@ -287,12 +292,11 @@
         width: fit-content;
         /* border: #e27500 2px solid; */
         color: black;
+        animation: none;
 
         img {
             display: none;
         }
-
-        
     }
 
     #nav_links {
@@ -309,6 +313,11 @@
             font-size: 14px;
             font-weight: normal;
             color: grey;
+        }
+
+        a:hover {
+            cursor: pointer;
+            color: #e27500;
         }
     }
 

@@ -266,6 +266,12 @@ body {
         display: none;
     }
 
+    .nav_img {
+        img:hover {
+            cursor: pointer;
+        }
+    }
+
     .nav {
         .container-fluid {
         display: flex;
@@ -306,6 +312,11 @@ body {
         font-size: 14px;
         font-weight: normal;
         color: grey;
+    }
+
+    a:hover {
+        cursor: pointer;
+        color: #e27500;
     }
 }
 
